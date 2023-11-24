@@ -1,0 +1,9 @@
+chromadb==0.4.18
+faiss-cpu==1.7.4
+openai==0.28
+langchain==0.0.340
+streamlit==1.28.2
+PyPDF2==3.0.1
+tiktoken==0.5.1
+pandas
+numpy
