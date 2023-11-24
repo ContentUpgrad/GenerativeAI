@@ -13,16 +13,6 @@ def upload_files():
     uploaded_files = st.file_uploader("Upload the PDF files", accept_multiple_files=True)
     return uploaded_files
 
-def process_files(uploaded_files):
-    # Check if a PDF file has been uploaded
-    
-        # if uploaded_file is not None:
-        # Read the PDF file and extract text from its pages
-        pdf_reader = PdfReader(uploaded_file)
-        text = ""
-        for page in pdf_reader.pages:
-            text += page.extract_text()
-        return text
 
 def main():
     filepath = os.getcwd()
