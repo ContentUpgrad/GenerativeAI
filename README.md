@@ -1,2 +1,0 @@
-# GenerativeAI
-Generative AI
