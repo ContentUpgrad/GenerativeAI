@@ -38,8 +38,23 @@ Once you've logged into the EC2 instance via a terminal (Mac/Linux) or PuTTY (Wi
 ### Start the Docker service:
 `sudo systemctl start docker.service`
 
+
+# Steps for running the application locally
+
+### Install requirments
+`pip install -r requirements.txt`
+
+### Run the Streamlit app
+The application can be run locally using VS Code or a terminal using the following command:
+`streamlit run app.py`
+
+Navigate to the following link in your browser to access the application
+`localhost:8501`
+
 # Docker Commands
 
 `docker build . -t langchain-rag-app:latest`
 
 `docker-compose up`
+
+**NOTE**: While deploying in EC2 instance, make sure that you allow the inbound port `8501` in the security groups section of EC2.
