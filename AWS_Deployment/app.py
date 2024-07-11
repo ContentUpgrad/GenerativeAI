@@ -4,10 +4,15 @@ import openai
 import streamlit as st
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
-from langchain.embeddings.openai import OpenAIEmbeddings
-from langchain.vectorstores import FAISS, Chroma
+# from langchain.embeddings.openai import OpenAIEmbeddings
+# from langchain_community.embeddings import OpenAIEmbeddings
+from langchain_openai import OpenAIEmbeddings
+# from langchain.vectorstores import FAISS, Chroma
+from langchain_community.vectorstores import FAISS, Chroma
 from langchain.chains.question_answering import load_qa_chain
-from langchain.llms import OpenAI
+# from langchain.llms import OpenAI
+# from langchain_community.llms import OpenAI
+from langchain_openai import OpenAI
 
 def upload_files():
     uploaded_files = st.file_uploader("Upload the PDF files", accept_multiple_files=True)
@@ -57,7 +62,7 @@ def main():
         chunks = text_splitter.split_text(text)
 
         # Create embeddings and build a knowledge base for the chunks.
-        embeddings = OpenAIEmbeddings()
+        embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
         
         knowledge_base = FAISS.from_texts(chunks, embeddings)
 
