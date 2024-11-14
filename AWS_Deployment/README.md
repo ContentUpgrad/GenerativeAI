@@ -1,53 +1,50 @@
 # Deploying on AWS Cloud
-#### Logging to the Amazon EC2 instance
+## Logging to the Amazon EC2 instance
 For Amazon Linux 2023 based instances, the password is `ec2-user`
 For Ubuntu based instance, the password is `ubuntu`
 
 Once you've logged into the EC2 instance via a terminal (Mac/Linux) or PuTTY (Windows), follow the instructions below to install Git, Docker and Docker-Compose on an EC2 instance.
 
-### Switch to the superuser
+## Switch to the superuser
 
 `sudo su`
 
-### Install Docker
+## Install Docker
 
 `yum install docker`
 
-### Get pip3 if not already installed
+## Get pip3 if not already installed
 
 `yum install python3-pip`
 
-### Install Docker-Compose through Pip
+## Install Docker-Compose through Pip
 
 `pip3 install --user docker-compose`
 
-
-### Download the docker-compose binaries
+## Download the docker-compose binaries
 
 `sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose`
 
-
-### Change the permissions of the docker-compose binaries
+## Change the permissions of the docker-compose binaries
 
 `sudo chmod +x /usr/local/bin/docker-compose`
 
 
-### Create a system link between the docker-compose binaries
+## Create a system link between the docker-compose binaries
 
 `ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose`
 
-### Verify docker compose version:
+## Verify docker compose version:
 
 `docker-compose version`
 
-### Enable docker service at AMI boot time:
+## Enable docker service at AMI boot time:
 
 `sudo systemctl enable docker.service`
 
-### Start the Docker service:
+## Start the Docker service:
 
 `sudo systemctl start docker.service`
-
 
 Steps for running the application locally
 
@@ -77,15 +74,13 @@ NOTE: While deploying in EC2 instance, make sure that you allow the inbound port
 
 Log into Azure Portal and create a new Virtual Machine:
    - For Ubuntu-based instances, use username: `azureuser`.
-   - Choose a VM size that meets your app’s resource requirements.
+   - Choose a VM size that meets your the app's resource requirements (recommended
    - Under Inbound port rules, add 8501 to allow access to your application.
 
 Connect to Your VM:
-   - On Mac/Linux, use SSH from your terminal:
-     ```bash
-     ssh azureuser@<your_vm_public_ip>
-     ```
-   - On Windows, use an SSH client such as PuTTY with the provided public IP.
+- On Mac/Linux, use SSH from your terminal:
+`ssh azureuser@<your_vm_public_ip>`
+- On Windows, use an SSH client such as PuTTY with the provided public IP.
 
 ## Install Required Tools on the Azure VM
 
@@ -102,6 +97,7 @@ Once connected to the VM, follow these instructions to install Git, Docker, and 
 
 ## Install pip3 (Python Package Manager):
 `sudo apt install -y python3-pip`
+
 
 ## Install Docker-Compose via pip:
 `pip3 install docker-compose`
