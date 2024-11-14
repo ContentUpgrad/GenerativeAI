@@ -124,6 +124,7 @@ Use the following command to download the latest Docker-Compose binaries:
 
 ## Clone Your Application’s Repository:
 `git clone <your_repo_url>`
+
 `cd <your_repo_name>`
 
 ## Install Python Dependencies:
