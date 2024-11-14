@@ -74,7 +74,7 @@ NOTE: While deploying in EC2 instance, make sure that you allow the inbound port
 
 Log into Azure Portal and create a new Virtual Machine:
    - For Ubuntu-based instances, use username: `azureuser`.
-   - Choose a VM size that meets your the app's resource requirements (recommended
+   - Choose a VM size that meets your the app's resource requirements.
    - Under Inbound port rules, add 8501 to allow access to your application.
 
 Connect to Your VM:
